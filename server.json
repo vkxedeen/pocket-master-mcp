@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.voronkovd/pocket-master-mcp",
+  "title": "Sonicake Pocket Master",
+  "description": "Control a Sonicake Pocket Master guitar processor over USB MIDI: amps, effects, parameters and presets.",
+  "repository": {
+    "url": "https://github.com/voronkovd/pocket-master-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "pocket-master-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {"type": "stdio"},
+      "environmentVariables": [
+        {"name": "PM_PORT", "description": "Substring of the MIDI port name (default: auto-detect)", "isRequired": false},
+        {"name": "PM_DATA_DIR", "description": "Where backups, tone files, language packs and logs are stored (default ~/.pocket-master-mcp)", "isRequired": false},
+        {"name": "PM_DEBUG_TOOLS", "description": "1 exposes low-level research tools", "isRequired": false}
+      ]
+    }
+  ]
+}

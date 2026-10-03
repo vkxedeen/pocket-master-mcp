@@ -1,0 +1,15 @@
+{
+  "_note": "Edge-of-breakup crunch with a little spring reverb.",
+  "blocks": {
+    "nr":  {"on": false},
+    "fx1": {"on": false},
+    "drv": {"model": "Butter OD", "params": {"Gain": 30, "Vol": 70}},
+    "amp": {"model": "Brit 45", "params": {"Gain": 45, "Pres": 50, "Vol": 60, "Bass": 50, "Middle": 60, "Treble": 55}},
+    "ir":  {"model": "BritGN 2x12"},
+    "eq":  {"on": false},
+    "fx2": {"on": false},
+    "dly": {"model": "Slap", "on": false},
+    "rvb": {"model": "Spring", "params": {"Mix": 25, "Decay": 40}}
+  },
+  "preset_volume": 70
+}

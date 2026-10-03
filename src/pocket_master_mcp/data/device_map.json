@@ -1,0 +1,3809 @@
+{
+ "_source": "Derived from PocketEdit (github.com/suckyble/PocketEdit) module and command libraries.",
+ "blocks": [
+  {
+   "key": "nr",
+   "module": 0,
+   "label": "NR"
+  },
+  {
+   "key": "fx1",
+   "module": 1,
+   "label": "FX1"
+  },
+  {
+   "key": "drv",
+   "module": 2,
+   "label": "DRV"
+  },
+  {
+   "key": "amp",
+   "module": 3,
+   "label": "AMP"
+  },
+  {
+   "key": "ir",
+   "module": 4,
+   "label": "IR"
+  },
+  {
+   "key": "eq",
+   "module": 5,
+   "label": "EQ"
+  },
+  {
+   "key": "fx2",
+   "module": 6,
+   "label": "FX2"
+  },
+  {
+   "key": "dly",
+   "module": 7,
+   "label": "DLY"
+  },
+  {
+   "key": "rvb",
+   "module": 8,
+   "label": "RVB"
+  }
+ ],
+ "models": {
+  "nr": [
+   {
+    "id": 1,
+    "name": "Gate",
+    "code": 27,
+    "params": [
+     {
+      "name": "THRE",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ],
+  "fx1": [
+   {
+    "id": 101,
+    "name": "COMP 1",
+    "code": 0,
+    "params": [
+     {
+      "name": "Sustain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 102,
+    "name": "COMP 2",
+    "code": 1,
+    "params": [
+     {
+      "name": "Sustain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Attack",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 60
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Clip",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10
+     }
+    ]
+   },
+   {
+    "id": 103,
+    "name": "Touch Wah",
+    "code": 16777231,
+    "params": [
+     {
+      "name": "Sense",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Range",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Q",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Mix",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Mode",
+      "alg": 4,
+      "type": "select",
+      "options": [
+       "Guitar",
+       "Bass"
+      ],
+      "default": 0
+     }
+    ]
+   },
+   {
+    "id": 104,
+    "name": "Auto Wah",
+    "code": 16777237,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Low",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 25
+     },
+     {
+      "name": "Q",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 70
+     },
+     {
+      "name": "High",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 60
+     }
+    ]
+   },
+   {
+    "id": 105,
+    "name": "Boost",
+    "code": 26,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "+3dB",
+      "alg": 1,
+      "type": "switch",
+      "default": 1
+     },
+     {
+      "name": "Bright",
+      "alg": 2,
+      "type": "switch",
+      "default": 1
+     }
+    ]
+   },
+   {
+    "id": 106,
+    "name": "A-Chorus",
+    "code": 67108864,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Tone",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 107,
+    "name": "B-Chorus",
+    "code": 67108872,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 108,
+    "name": "Flanger",
+    "code": 67108881,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "P.Delay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "F.Back",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 109,
+    "name": "Phaser",
+    "code": 67108889,
+    "params": [
+     {
+      "name": "Rate",
+      "alg": 0,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 110,
+    "name": "Vibe",
+    "code": 67108895,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 111,
+    "name": "Vibrato",
+    "code": 67108885,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 112,
+    "name": "Tremolo",
+    "code": 67108897,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 113,
+    "name": "Sine Trem",
+    "code": 67108902,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 114,
+    "name": "Bias Trem",
+    "code": 67108904,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bias",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 115,
+    "name": "AC G",
+    "code": 16777217,
+    "params": [
+     {
+      "name": "Body",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Top",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Mode",
+      "alg": 3,
+      "type": "select",
+      "options": [
+       "Standard",
+       "Jumbo",
+       "Enhanced",
+       "Piezo"
+      ],
+      "default": 2
+     }
+    ]
+   }
+  ],
+  "drv": [
+   {
+    "id": 201,
+    "name": "Scream",
+    "code": 50331648,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+     },
+     {
+      "name": "Tone",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 70
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 202,
+    "name": "Butter OD",
+    "code": 50331650,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 203,
+    "name": "JP Dist",
+    "code": 50331690,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Tone",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 204,
+    "name": "Shark",
+    "code": 50331696,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Tone",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 205,
+    "name": "Dark Mouse",
+    "code": 50331691,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Filter",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 206,
+    "name": "Grey Fuzz",
+    "code": 50331682,
+    "params": [
+     {
+      "name": "Fuzz",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 207,
+    "name": "Red Fuzz",
+    "code": 50331684,
+    "params": [
+     {
+      "name": "Fuzz",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 208,
+    "name": "Bass Drive",
+    "code": 50331712,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Blend",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ],
+  "amp": [
+   {
+    "id": 301,
+    "name": "TWD Deluxe",
+    "code": 117440513,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Tone",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 302,
+    "name": "B-Man N",
+    "code": 117440515,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 303,
+    "name": "Dark Twin",
+    "code": 117440516,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 35
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 60
+     },
+     {
+      "name": "Bright",
+      "alg": 5,
+      "type": "switch",
+      "default": 1
+     }
+    ]
+   },
+   {
+    "id": 304,
+    "name": "Voks 30N",
+    "code": 117440529,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Tone Cut",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bright",
+      "alg": 3,
+      "type": "switch",
+      "default": 0
+     }
+    ]
+   },
+   {
+    "id": 305,
+    "name": "Jazz 120",
+    "code": 117440532,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bright",
+      "alg": 4,
+      "type": "switch",
+      "default": 0
+     }
+    ]
+   },
+   {
+    "id": 306,
+    "name": "Brit 45",
+    "code": 117440554,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 25
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 65
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 45
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 65
+     }
+    ]
+   },
+   {
+    "id": 307,
+    "name": "Brit 50JP",
+    "code": 117440559,
+    "params": [
+     {
+      "name": "Gain 1",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Gain 2",
+      "alg": 6,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 308,
+    "name": "Brit 800",
+    "code": 117440565,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 309,
+    "name": "B-Man B",
+    "code": 117440548,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 35
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 310,
+    "name": "Voks 30TB",
+    "code": 117440551,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Tone Cut",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Char",
+      "alg": 5,
+      "type": "select",
+      "options": [
+       "Cool",
+       "Hot"
+      ],
+      "default": 0
+     }
+    ]
+   },
+   {
+    "id": 311,
+    "name": "Sol 100 OD",
+    "code": 117440583,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 312,
+    "name": "Dizzy VH",
+    "code": 117440613,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 313,
+    "name": "Eng 120",
+    "code": 117440607,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 314,
+    "name": "Halen 51",
+    "code": 117440602,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 6,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 315,
+    "name": "Sol 100 LD",
+    "code": 117440601,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 316,
+    "name": "Calif DualV",
+    "code": 117440616,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 317,
+    "name": "Calif DualM",
+    "code": 117440617,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 318,
+    "name": "Eng Power",
+    "code": 117440611,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 319,
+    "name": "Flyman B1+",
+    "code": 117440605,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 320,
+    "name": "Bog XT",
+    "code": 117440621,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Pres",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 321,
+    "name": "A BassVT",
+    "code": 117440627,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "MidFreq",
+      "alg": 3,
+      "type": "select",
+      "options": [
+       "220Hz",
+       "450Hz",
+       "800Hz",
+       "1.6kHz",
+       "3kHz"
+      ],
+      "default": 1
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 322,
+    "name": "Voks Bass",
+    "code": 117440629,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ],
+  "ir": [
+   {
+    "id": 401,
+    "name": "TWD 1x8",
+    "code": 167772161,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 402,
+    "name": "TWD-P 1x10",
+    "code": 167772162,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 403,
+    "name": "Viblux 1x12",
+    "code": 167772164,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 404,
+    "name": "Voks 1x12",
+    "code": 167772168,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 405,
+    "name": "TWD 2x12",
+    "code": 167772187,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 406,
+    "name": "Double 2x12",
+    "code": 167772178,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 407,
+    "name": "Star 2x12",
+    "code": 167772185,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 408,
+    "name": "Jazz 2x12",
+    "code": 167772177,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 409,
+    "name": "BritGN 2x12",
+    "code": 167772179,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 410,
+    "name": "BritGN 4x12",
+    "code": 167772194,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 411,
+    "name": "Bog 4x12",
+    "code": 167772199,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 412,
+    "name": "Dizzy 4x12",
+    "code": 167772206,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 413,
+    "name": "Halen 4x12",
+    "code": 167772192,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 414,
+    "name": "Sol 4x12",
+    "code": 167772200,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 415,
+    "name": "Dual 4x12",
+    "code": 167772196,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 416,
+    "name": "User IR 1",
+    "code": 168820736,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 417,
+    "name": "User IR 2",
+    "code": 168820737,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 418,
+    "name": "User IR 3",
+    "code": 168820738,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 419,
+    "name": "User IR 4",
+    "code": 168820739,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 420,
+    "name": "User IR 5",
+    "code": 168820740,
+    "params": [
+     {
+      "name": "Vol",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ],
+  "eq": [
+   {
+    "id": 501,
+    "name": "GT EQ 1",
+    "code": 16777269,
+    "params": [
+     {
+      "name": "125Hz",
+      "alg": 0,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "400Hz",
+      "alg": 1,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "800Hz",
+      "alg": 2,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "1.6kHz",
+      "alg": 3,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "4kHz",
+      "alg": 4,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "Vol",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 502,
+    "name": "GT EQ 2",
+    "code": 16777270,
+    "params": [
+     {
+      "name": "100Hz",
+      "alg": 0,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "500Hz",
+      "alg": 1,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "1kHz",
+      "alg": 2,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "3kHz",
+      "alg": 3,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "6kHz",
+      "alg": 4,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "Vol",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 503,
+    "name": "Bass EQ",
+    "code": 16777274,
+    "params": [
+     {
+      "name": "50Hz",
+      "alg": 0,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "120Hz",
+      "alg": 1,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "400Hz",
+      "alg": 2,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "800Hz",
+      "alg": 3,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "4.5kHz",
+      "alg": 4,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "Vol",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ],
+  "fx2": [
+   {
+    "id": 101,
+    "name": "COMP 1",
+    "code": 0,
+    "params": [
+     {
+      "name": "Sustain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 102,
+    "name": "COMP 2",
+    "code": 1,
+    "params": [
+     {
+      "name": "Sustain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Attack",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 60
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Clip",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10
+     }
+    ]
+   },
+   {
+    "id": 103,
+    "name": "Touch Wah",
+    "code": 16777231,
+    "params": [
+     {
+      "name": "Sense",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Range",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Q",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Mix",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Mode",
+      "alg": 4,
+      "type": "select",
+      "options": [
+       "Guitar",
+       "Bass"
+      ],
+      "default": 0
+     }
+    ]
+   },
+   {
+    "id": 104,
+    "name": "Auto Wah",
+    "code": 16777237,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Low",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 25
+     },
+     {
+      "name": "Q",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 70
+     },
+     {
+      "name": "High",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 60
+     }
+    ]
+   },
+   {
+    "id": 116,
+    "name": "Octave",
+    "code": 16777249,
+    "params": [
+     {
+      "name": "Low",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "High",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Dry",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 117,
+    "name": "Pitch",
+    "code": 16777251,
+    "params": [
+     {
+      "name": "High",
+      "alg": 0,
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "default": 12
+     },
+     {
+      "name": "Low Pitch",
+      "alg": 1,
+      "min": -24,
+      "max": 0,
+      "step": 1,
+      "default": -12
+     },
+     {
+      "name": "Dry",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "H-Vol",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "L-Vol",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 118,
+    "name": "Detune",
+    "code": 16777257,
+    "params": [
+     {
+      "name": "Detune",
+      "alg": 0,
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "cents",
+      "default": -25
+     },
+     {
+      "name": "Wet",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Dry",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 105,
+    "name": "Boost",
+    "code": 26,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "+3dB",
+      "alg": 1,
+      "type": "switch",
+      "default": 1
+     },
+     {
+      "name": "Bright",
+      "alg": 2,
+      "type": "switch",
+      "default": 1
+     }
+    ]
+   },
+   {
+    "id": 106,
+    "name": "A-Chorus",
+    "code": 67108864,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Tone",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 107,
+    "name": "B-Chorus",
+    "code": 67108872,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 108,
+    "name": "Flanger",
+    "code": 67108881,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "P.Delay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "F.Back",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 109,
+    "name": "Phaser",
+    "code": 67108889,
+    "params": [
+     {
+      "name": "Rate",
+      "alg": 0,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 110,
+    "name": "Vibe",
+    "code": 67108895,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 111,
+    "name": "Vibrato",
+    "code": 67108885,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 112,
+    "name": "Tremolo",
+    "code": 67108897,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     }
+    ]
+   },
+   {
+    "id": 113,
+    "name": "Sine Trem",
+    "code": 67108902,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 114,
+    "name": "Bias Trem",
+    "code": 67108904,
+    "params": [
+     {
+      "name": "Depth",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Rate",
+      "alg": 1,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "unit": "Hz",
+      "default": 0.5
+     },
+     {
+      "name": "Vol",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bias",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ],
+  "dly": [
+   {
+    "id": 701,
+    "name": "Pure",
+    "code": 184549376,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 1000,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   },
+   {
+    "id": 702,
+    "name": "Slap",
+    "code": 184549381,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 300,
+      "step": 1,
+      "unit": "ms",
+      "default": 150
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   },
+   {
+    "id": 703,
+    "name": "Warm",
+    "code": 184549389,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 1000,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   },
+   {
+    "id": 704,
+    "name": "Mag",
+    "code": 184549378,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 1000,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   },
+   {
+    "id": 705,
+    "name": "Tube",
+    "code": 184549387,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 1000,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   },
+   {
+    "id": 706,
+    "name": "Reverse",
+    "code": 184549395,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 500,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   },
+   {
+    "id": 707,
+    "name": "Analog",
+    "code": 184549396,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 1000,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   },
+   {
+    "id": 708,
+    "name": "Sweep",
+    "code": 184549382,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 1000,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "S-Depth",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "S-Rate",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 709,
+    "name": "Ping Pong",
+    "code": 184549380,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+     },
+     {
+      "name": "Time",
+      "alg": 1,
+      "min": 20,
+      "max": 500,
+      "step": 1,
+      "unit": "ms",
+      "default": 500
+     },
+     {
+      "name": "F.Back",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     }
+    ]
+   }
+  ],
+  "rvb": [
+   {
+    "id": 801,
+    "name": "Air",
+    "code": 201326603,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Damp",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+     }
+    ]
+   },
+   {
+    "id": 802,
+    "name": "Room",
+    "code": 201326592,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 803,
+    "name": "Hall",
+    "code": 201326593,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 804,
+    "name": "Church",
+    "code": 201326594,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 805,
+    "name": "Plate 1",
+    "code": 201326608,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 806,
+    "name": "Plate 2",
+    "code": 201326607,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Damp",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 807,
+    "name": "Spring",
+    "code": 201326596,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 808,
+    "name": "Light",
+    "code": 201326598,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 809,
+    "name": "Ocean",
+    "code": 201326599,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 810,
+    "name": "Dream",
+    "code": 201326613,
+    "params": [
+     {
+      "name": "Mix",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 30
+     },
+     {
+      "name": "Decay",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Damp",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+     },
+     {
+      "name": "Mod",
+      "alg": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ],
+  "clone": [
+   {
+    "id": 901,
+    "name": "User Profile 1",
+    "code": 117440512,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 902,
+    "name": "User Profile 2",
+    "code": 251658241,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 903,
+    "name": "User Profile 3",
+    "code": 251658242,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 904,
+    "name": "User Profile 4",
+    "code": 251658243,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   },
+   {
+    "id": 905,
+    "name": "User Profile 5",
+    "code": 251658244,
+    "params": [
+     {
+      "name": "Gain",
+      "alg": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Vol",
+      "alg": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Bass",
+      "alg": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Middle",
+      "alg": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     },
+     {
+      "name": "Treble",
+      "alg": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+     }
+    ]
+   }
+  ]
+ }
+}

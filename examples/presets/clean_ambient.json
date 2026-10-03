@@ -1,0 +1,15 @@
+{
+  "_note": "Clean, wide tone for arpeggios: chorus, analog delay and plate reverb.",
+  "blocks": {
+    "nr":  {"on": true, "params": {"THRE": 20}},
+    "fx1": {"model": "COMP 1", "params": {"Sustain": 30, "Vol": 55}},
+    "drv": {"on": false},
+    "amp": {"model": "Jazz 120", "params": {"Vol": 60, "Bass": 45, "Middle": 50, "Treble": 60, "Bright": "on"}},
+    "ir":  {"model": "Jazz 2x12"},
+    "eq":  {"on": false},
+    "fx2": {"model": "A-Chorus", "params": {"Depth": 40, "Rate": 0.8, "Tone": 55}},
+    "dly": {"model": "Analog", "params": {"Mix": 25, "Time": 420, "F.Back": 35}},
+    "rvb": {"model": "Plate 1", "params": {"Mix": 35, "Decay": 60}}
+  },
+  "preset_volume": 70
+}

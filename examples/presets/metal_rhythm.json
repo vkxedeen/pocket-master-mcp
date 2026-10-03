@@ -1,0 +1,16 @@
+{
+  "_note": "Tight high-gain rhythm: Scream as a clean boost into a British high-gain amp. A starting point, adjust by ear.",
+  "chain": ["nr", "fx1", "drv", "amp", "ir", "eq", "fx2", "dly", "rvb"],
+  "blocks": {
+    "nr":  {"on": true, "params": {"THRE": 45}},
+    "fx1": {"on": false},
+    "drv": {"model": "Scream", "params": {"Gain": 5, "Tone": 60, "Vol": 85}},
+    "amp": {"model": "Sol 100 LD", "params": {"Gain": 62, "Pres": 55, "Vol": 60, "Bass": 55, "Middle": 58, "Treble": 60}},
+    "ir":  {"model": "BritGN 4x12", "params": {"Vol": 60}},
+    "eq":  {"model": "GT EQ 1", "params": {"125Hz": -5, "400Hz": -8, "800Hz": 4, "1.6kHz": 6, "4kHz": -4, "Vol": 50}},
+    "fx2": {"on": false},
+    "dly": {"on": false},
+    "rvb": {"model": "Room", "params": {"Mix": 10, "Decay": 30}}
+  },
+  "preset_volume": 70
+}
